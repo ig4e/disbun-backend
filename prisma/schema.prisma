@@ -11,6 +11,147 @@ generator nestgraphql {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "cockroachdb"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String            @id @default(uuid()) @map("_id")
+  image             UserImage?
+  username          String
+  discriminator     String
+  email             String
+  /// @HideField({ output: true, input: true })
+  password          String
+  verified          Boolean
+  staff             Boolean
+  locale            UserLocale        @default(EN_US)
+  groups            UserOnGroup[]
+  relations         UserRelation[]    @relation("relatedUsers")
+  dateOfBirth       DateTime
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+  /// @HideField({ output: true, input: true })
+  UserRelations     UserRelation[]
+  /// @HideField({ output: true, input: true })
+  Messages          Message[]
+  /// @HideField({ output: true, input: true })
+  MessageReaction   MessageReaction[]
+  /// @HideField({ output: true, input: true })
+  messageReactionId String[]
+}
+
+model UserOnGroup {
+  owner Boolean   @default(false)
+  user  User      @relation(fields: [userId], references: [id])
+  group UserGroup @relation(fields: [groupId], references: [id])
+
+  /// @HideField({ output: true, input: true })
+  groupId String
+  /// @HideField({ output: true, input: true })
+  userId  String
+
+  @@id([groupId, userId])
+}
+
+model UserGroup {
+  id           String        @id @default(uuid()) @map("_id")
+  title        String
+  image        GroupImage?
+  users        UserOnGroup[]
+  groupChannel GroupChannel?
+}
+
+model UserRelation {
+  relatedUser   User           @relation(fields: [relatedUserId], references: [id], "relatedUsers")
+  user          User           @relation(fields: [userId], references: [id])
+  status        RelationStatus @default(NONE)
+  /// @HideField({ output: true, input: true })
+  relatedUserId String
+  /// @HideField({ output: true, input: true })
+  userId        String
+  channel       DmChannel?
+
+  @@id([relatedUserId, userId])
+}
+
+enum RelationStatus {
+  NONE
+  PENDING
+  FRIENDS
+  BLOCKED
+}
+
+model DmChannel {
+  id       String    @id @default(uuid()) @map("_id")
+  messages Message[]
+
+  userRelation              UserRelation @relation(fields: [userRelationRelatedUserId, userRelationUserId], references: [relatedUserId, userId])
+  /// @HideField({ output: true, input: true })
+  userRelationRelatedUserId String
+  /// @HideField({ output: true, input: true })
+  userRelationUserId        String
+
+  @@unique([userRelationRelatedUserId, userRelationUserId])
+}
+
+model GroupChannel {
+  id       String    @id @default(uuid()) @map("_id")
+  messages Message[]
+
+  group       UserGroup @relation(fields: [userGroupId], references: [id])
+  /// @HideField({ output: true, input: true })
+  userGroupId String    @unique
+}
+
+model Message {
+  id             String            @id @default(uuid()) @map("_id")
+  pinned         Boolean           @default(false)
+  author         User              @relation(fields: [userId], references: [id])
+  content        String?
+  attachments    Attachment[]
+  reactions      MessageReaction[]
+  references     Message?          @relation(fields: [refrenceId], references: [id], "reference")
+  referencedIn   Message[]         @relation("reference")
+  updatedAt      DateTime          @updatedAt
+  createdAt      DateTime          @default(now())
+  userId         String
+  refrenceId     String?
+  channel        DmChannel         @relation(fields: [channelId], references: [id])
+  channelId      String
+  groupChannel   GroupChannel?     @relation(fields: [groupChannelId], references: [id])
+  /// @HideField({ output: true, input: true })
+  groupChannelId String?
+}
+
+model Attachment {
+  id          String  @id @default(uuid()) @map("_id")
+  fileName    String
+  contentType String?
+  message     Message @relation(fields: [messageId], references: [id])
+  messageId   String
+}
+
+model GroupImage {
+  id          String    @id @default(uuid()) @map("_id")
+  group       UserGroup @relation(fields: [userGroupId], references: [id])
+  userGroupId String    @unique
+}
+
+model UserImage {
+  id     String @id @default(uuid()) @map("_id")
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique
+}
+
+model MessageReaction {
+  id        String  @id @default(uuid()) @map("_id")
+  emoji     String
+  users     User[]
+  message   Message @relation(fields: [messageId], references: [id])
+  messageId String
+}
+
+enum UserLocale {
+  EN_US
 }
