@@ -54,12 +54,12 @@ export class UserUncheckedCreateWithoutUserRelationsInput {
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
-    @HideField()
+    @Field(() => MessageUncheckedCreateNestedManyWithoutAuthorInput, {nullable:true})
     Messages?: MessageUncheckedCreateNestedManyWithoutAuthorInput;
 
-    @HideField()
+    @Field(() => MessageReactionUncheckedCreateNestedManyWithoutUsersInput, {nullable:true})
     MessageReaction?: MessageReactionUncheckedCreateNestedManyWithoutUsersInput;
 
-    @HideField()
+    @Field(() => UserCreatemessageReactionIdInput, {nullable:true})
     messageReactionId?: UserCreatemessageReactionIdInput;
 }

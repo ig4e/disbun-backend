@@ -40,6 +40,6 @@ export class UserCreateManyInput {
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
-    @HideField()
+    @Field(() => UserCreatemessageReactionIdInput, {nullable:true})
     messageReactionId?: UserCreatemessageReactionIdInput;
 }

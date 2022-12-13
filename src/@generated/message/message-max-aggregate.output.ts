@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class MessageMaxAggregate {
@@ -29,6 +28,6 @@ export class MessageMaxAggregate {
     @Field(() => String, {nullable:true})
     channelId?: string;
 
-    @HideField()
+    @Field(() => String, {nullable:true})
     groupChannelId?: string;
 }

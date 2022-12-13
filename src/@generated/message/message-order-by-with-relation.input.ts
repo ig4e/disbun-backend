@@ -7,7 +7,6 @@ import { MessageReactionOrderByRelationAggregateInput } from '../message-reactio
 import { MessageOrderByRelationAggregateInput } from './message-order-by-relation-aggregate.input';
 import { DmChannelOrderByWithRelationInput } from '../dm-channel/dm-channel-order-by-with-relation.input';
 import { GroupChannelOrderByWithRelationInput } from '../group-channel/group-channel-order-by-with-relation.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class MessageOrderByWithRelationInput {
@@ -57,6 +56,6 @@ export class MessageOrderByWithRelationInput {
     @Field(() => GroupChannelOrderByWithRelationInput, {nullable:true})
     groupChannel?: GroupChannelOrderByWithRelationInput;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     groupChannelId?: keyof typeof SortOrder;
 }

@@ -11,7 +11,6 @@ import { AuthService } from './auth.service';
 import { UserLoginDto } from './dto/login.input';
 import { userRegisterDto } from './dto/register.input';
 import bcrypt from 'bcrypt';
-import { authConstans } from './constants';
 
 @Controller('auth')
 export class AuthController {
@@ -19,6 +18,7 @@ export class AuthController {
     private authService: AuthService,
     private prisma: PrismaService,
   ) {}
+
   @Post('login')
   async login(@Body() userLoginDto: UserLoginDto) {
     const user = await this.authService.validateUser(
@@ -31,6 +31,7 @@ export class AuthController {
     throw new UnauthorizedException('Email or password is invalid.');
   }
 
+  @Post('register')
   async register(@Body() userRegisterDto: userRegisterDto) {
     const emailAlreadyExsits = await this.prisma.user.count({
       where: { email: { equals: userRegisterDto.email } },
@@ -47,10 +48,7 @@ export class AuthController {
         discriminator: randomUUID().split('-')[1],
         staff: false,
         verified: false,
-        password: await bcrypt.hash(
-          userRegisterDto.password,
-          authConstans.saltRounds,
-        ),
+        password: await bcrypt.hash(userRegisterDto.password, 10),
       },
     });
 

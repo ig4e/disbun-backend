@@ -4,7 +4,6 @@ import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class MessageUncheckedUpdateManyWithoutMessagesInput {
@@ -30,6 +29,6 @@ export class MessageUncheckedUpdateManyWithoutMessagesInput {
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     channelId?: StringFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     groupChannelId?: NullableStringFieldUpdateOperationsInput;
 }

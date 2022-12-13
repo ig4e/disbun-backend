@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class MessageCountAggregate {
@@ -30,7 +29,7 @@ export class MessageCountAggregate {
     @Field(() => Int, {nullable:false})
     channelId!: number;
 
-    @HideField()
+    @Field(() => Int, {nullable:false})
     groupChannelId!: number;
 
     @Field(() => Int, {nullable:false})

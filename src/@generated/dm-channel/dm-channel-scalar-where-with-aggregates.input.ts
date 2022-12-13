@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class DmChannelScalarWhereWithAggregatesInput {
@@ -18,9 +17,9 @@ export class DmChannelScalarWhereWithAggregatesInput {
     @Field(() => StringWithAggregatesFilter, {nullable:true})
     id?: StringWithAggregatesFilter;
 
-    @HideField()
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
     userRelationRelatedUserId?: StringWithAggregatesFilter;
 
-    @HideField()
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
     userRelationUserId?: StringWithAggregatesFilter;
 }

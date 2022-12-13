@@ -43,6 +43,6 @@ export class UserUpdateManyMutationInput {
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => UserUpdatemessageReactionIdInput, {nullable:true})
     messageReactionId?: UserUpdatemessageReactionIdInput;
 }

@@ -3,7 +3,6 @@ import { InputType } from '@nestjs/graphql';
 import { StringFilter } from '../prisma/string-filter.input';
 import { MessageListRelationFilter } from '../message/message-list-relation-filter.input';
 import { UserGroupRelationFilter } from '../user-group/user-group-relation-filter.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class GroupChannelWhereInput {
@@ -26,6 +25,6 @@ export class GroupChannelWhereInput {
     @Field(() => UserGroupRelationFilter, {nullable:true})
     group?: UserGroupRelationFilter;
 
-    @HideField()
+    @Field(() => StringFilter, {nullable:true})
     userGroupId?: StringFilter;
 }

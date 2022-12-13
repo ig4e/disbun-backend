@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 import { MessageCountAggregate } from './message-count-aggregate.output';
 import { MessageMinAggregate } from './message-min-aggregate.output';
 import { MessageMaxAggregate } from './message-max-aggregate.output';
@@ -32,7 +31,7 @@ export class MessageGroupBy {
     @Field(() => String, {nullable:false})
     channelId!: string;
 
-    @HideField()
+    @Field(() => String, {nullable:true})
     groupChannelId?: string;
 
     @Field(() => MessageCountAggregate, {nullable:true})

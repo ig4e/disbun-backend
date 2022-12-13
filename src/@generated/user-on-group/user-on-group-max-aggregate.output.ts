@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class UserOnGroupMaxAggregate {
@@ -8,9 +7,9 @@ export class UserOnGroupMaxAggregate {
     @Field(() => Boolean, {nullable:true})
     owner?: boolean;
 
-    @HideField()
+    @Field(() => String, {nullable:true})
     groupId?: string;
 
-    @HideField()
+    @Field(() => String, {nullable:true})
     userId?: string;
 }

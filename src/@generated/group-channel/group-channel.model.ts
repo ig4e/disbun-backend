@@ -3,7 +3,6 @@ import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Message } from '../message/message.model';
 import { UserGroup } from '../user-group/user-group.model';
-import { HideField } from '@nestjs/graphql';
 import { GroupChannelCount } from './group-channel-count.output';
 
 @ObjectType()
@@ -18,7 +17,7 @@ export class GroupChannel {
     @Field(() => UserGroup, {nullable:false})
     group?: UserGroup;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     userGroupId!: string;
 
     @Field(() => GroupChannelCount, {nullable:false})

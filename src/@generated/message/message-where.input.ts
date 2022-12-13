@@ -11,7 +11,6 @@ import { MessageListRelationFilter } from './message-list-relation-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { DmChannelRelationFilter } from '../dm-channel/dm-channel-relation-filter.input';
 import { GroupChannelRelationFilter } from '../group-channel/group-channel-relation-filter.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class MessageWhereInput {
@@ -70,6 +69,6 @@ export class MessageWhereInput {
     @Field(() => GroupChannelRelationFilter, {nullable:true})
     groupChannel?: GroupChannelRelationFilter;
 
-    @HideField()
+    @Field(() => StringNullableFilter, {nullable:true})
     groupChannelId?: StringNullableFilter;
 }

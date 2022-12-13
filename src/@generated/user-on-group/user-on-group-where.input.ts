@@ -4,7 +4,6 @@ import { BoolFilter } from '../prisma/bool-filter.input';
 import { UserRelationFilter } from '../user/user-relation-filter.input';
 import { UserGroupRelationFilter } from '../user-group/user-group-relation-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class UserOnGroupWhereInput {
@@ -27,9 +26,9 @@ export class UserOnGroupWhereInput {
     @Field(() => UserGroupRelationFilter, {nullable:true})
     group?: UserGroupRelationFilter;
 
-    @HideField()
+    @Field(() => StringFilter, {nullable:true})
     groupId?: StringFilter;
 
-    @HideField()
+    @Field(() => StringFilter, {nullable:true})
     userId?: StringFilter;
 }

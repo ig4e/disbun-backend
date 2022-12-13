@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { MessageUncheckedUpdateManyWithoutGroupChannelNestedInput } from '../message/message-unchecked-update-many-without-group-channel-nested.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class GroupChannelUncheckedUpdateInput {
@@ -13,6 +12,6 @@ export class GroupChannelUncheckedUpdateInput {
     @Field(() => MessageUncheckedUpdateManyWithoutGroupChannelNestedInput, {nullable:true})
     messages?: MessageUncheckedUpdateManyWithoutGroupChannelNestedInput;
 
-    @HideField()
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     userGroupId?: StringFieldUpdateOperationsInput;
 }

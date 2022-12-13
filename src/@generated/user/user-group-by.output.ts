@@ -42,7 +42,7 @@ export class UserGroupBy {
     @Field(() => Date, {nullable:false})
     updatedAt!: Date | string;
 
-    @HideField()
+    @Field(() => [String], {nullable:true})
     messageReactionId?: Array<string>;
 
     @Field(() => UserCountAggregate, {nullable:true})

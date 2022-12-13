@@ -66,15 +66,15 @@ export class UserWhereInput {
     @Field(() => DateTimeFilter, {nullable:true})
     updatedAt?: DateTimeFilter;
 
-    @HideField()
+    @Field(() => UserRelationListRelationFilter, {nullable:true})
     UserRelations?: UserRelationListRelationFilter;
 
-    @HideField()
+    @Field(() => MessageListRelationFilter, {nullable:true})
     Messages?: MessageListRelationFilter;
 
-    @HideField()
+    @Field(() => MessageReactionListRelationFilter, {nullable:true})
     MessageReaction?: MessageReactionListRelationFilter;
 
-    @HideField()
+    @Field(() => StringNullableListFilter, {nullable:true})
     messageReactionId?: StringNullableListFilter;
 }

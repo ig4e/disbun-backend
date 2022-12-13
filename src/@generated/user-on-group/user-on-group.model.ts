@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { User } from '../user/user.model';
 import { UserGroup } from '../user-group/user-group.model';
-import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class UserOnGroup {
@@ -16,9 +15,9 @@ export class UserOnGroup {
     @Field(() => UserGroup, {nullable:false})
     group?: UserGroup;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     groupId!: string;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     userId!: string;
 }

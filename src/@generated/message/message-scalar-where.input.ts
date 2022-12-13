@@ -4,7 +4,6 @@ import { StringFilter } from '../prisma/string-filter.input';
 import { BoolFilter } from '../prisma/bool-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class MessageScalarWhereInput {
@@ -42,6 +41,6 @@ export class MessageScalarWhereInput {
     @Field(() => StringFilter, {nullable:true})
     channelId?: StringFilter;
 
-    @HideField()
+    @Field(() => StringNullableFilter, {nullable:true})
     groupChannelId?: StringNullableFilter;
 }

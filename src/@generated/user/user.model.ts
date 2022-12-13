@@ -55,16 +55,16 @@ export class User {
     @Field(() => Date, {nullable:false})
     updatedAt!: Date;
 
-    @HideField()
+    @Field(() => [UserRelation], {nullable:true})
     UserRelations?: Array<UserRelation>;
 
-    @HideField()
+    @Field(() => [Message], {nullable:true})
     Messages?: Array<Message>;
 
-    @HideField()
+    @Field(() => [MessageReaction], {nullable:true})
     MessageReaction?: Array<MessageReaction>;
 
-    @HideField()
+    @Field(() => [String], {nullable:true})
     messageReactionId!: Array<string>;
 
     @Field(() => UserCount, {nullable:false})

@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { EnumRelationStatusWithAggregatesFilter } from '../prisma/enum-relation-status-with-aggregates-filter.input';
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class UserRelationScalarWhereWithAggregatesInput {
@@ -19,9 +18,9 @@ export class UserRelationScalarWhereWithAggregatesInput {
     @Field(() => EnumRelationStatusWithAggregatesFilter, {nullable:true})
     status?: EnumRelationStatusWithAggregatesFilter;
 
-    @HideField()
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
     relatedUserId?: StringWithAggregatesFilter;
 
-    @HideField()
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
     userId?: StringWithAggregatesFilter;
 }

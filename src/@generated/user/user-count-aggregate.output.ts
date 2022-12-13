@@ -39,7 +39,7 @@ export class UserCountAggregate {
     @Field(() => Int, {nullable:false})
     updatedAt!: number;
 
-    @HideField()
+    @Field(() => Int, {nullable:false})
     messageReactionId!: number;
 
     @Field(() => Int, {nullable:false})

@@ -1,26 +1,26 @@
 import {
   IsDateString,
   IsEmail,
+  IsNotEmpty,
   IsStrongPassword,
   MaxLength,
   MinLength,
 } from 'class-validator';
 
 export class userRegisterDto {
-  @MinLength(3, {
-    message: 'Usesname is too short',
-  })
-  @MaxLength(50, {
-    message: 'Usesname is too long',
-  })
+  @IsNotEmpty()
+  @MinLength(3)
+  @MaxLength(50)
   username: string;
 
   @IsEmail()
   email: string;
 
+  @IsNotEmpty()
   @IsStrongPassword()
   password: string;
 
+  @IsNotEmpty()
   @IsDateString()
   dateOfBirth: string;
 }

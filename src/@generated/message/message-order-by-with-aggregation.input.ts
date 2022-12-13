@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
-import { HideField } from '@nestjs/graphql';
 import { MessageCountOrderByAggregateInput } from './message-count-order-by-aggregate.input';
 import { MessageMaxOrderByAggregateInput } from './message-max-order-by-aggregate.input';
 import { MessageMinOrderByAggregateInput } from './message-min-order-by-aggregate.input';
@@ -33,7 +32,7 @@ export class MessageOrderByWithAggregationInput {
     @Field(() => SortOrder, {nullable:true})
     channelId?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     groupChannelId?: keyof typeof SortOrder;
 
     @Field(() => MessageCountOrderByAggregateInput, {nullable:true})

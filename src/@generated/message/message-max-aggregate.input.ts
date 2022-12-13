@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class MessageMaxAggregateInput {
@@ -29,6 +28,6 @@ export class MessageMaxAggregateInput {
     @Field(() => Boolean, {nullable:true})
     channelId?: true;
 
-    @HideField()
+    @Field(() => Boolean, {nullable:true})
     groupChannelId?: true;
 }

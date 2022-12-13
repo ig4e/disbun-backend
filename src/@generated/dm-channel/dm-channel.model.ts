@@ -3,7 +3,6 @@ import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Message } from '../message/message.model';
 import { UserRelation } from '../user-relation/user-relation.model';
-import { HideField } from '@nestjs/graphql';
 import { DmChannelCount } from './dm-channel-count.output';
 
 @ObjectType()
@@ -18,10 +17,10 @@ export class DmChannel {
     @Field(() => UserRelation, {nullable:false})
     userRelation?: UserRelation;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     userRelationRelatedUserId!: string;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     userRelationUserId!: string;
 
     @Field(() => DmChannelCount, {nullable:false})

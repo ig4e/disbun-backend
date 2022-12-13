@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { MessageUncheckedCreateNestedManyWithoutGroupChannelInput } from '../message/message-unchecked-create-nested-many-without-group-channel.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class GroupChannelUncheckedCreateInput {
@@ -12,6 +11,6 @@ export class GroupChannelUncheckedCreateInput {
     @Field(() => MessageUncheckedCreateNestedManyWithoutGroupChannelInput, {nullable:true})
     messages?: MessageUncheckedCreateNestedManyWithoutGroupChannelInput;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     userGroupId!: string;
 }

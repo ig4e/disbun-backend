@@ -55,15 +55,15 @@ export class UserUncheckedCreateInput {
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
-    @HideField()
+    @Field(() => UserRelationUncheckedCreateNestedManyWithoutUserInput, {nullable:true})
     UserRelations?: UserRelationUncheckedCreateNestedManyWithoutUserInput;
 
-    @HideField()
+    @Field(() => MessageUncheckedCreateNestedManyWithoutAuthorInput, {nullable:true})
     Messages?: MessageUncheckedCreateNestedManyWithoutAuthorInput;
 
-    @HideField()
+    @Field(() => MessageReactionUncheckedCreateNestedManyWithoutUsersInput, {nullable:true})
     MessageReaction?: MessageReactionUncheckedCreateNestedManyWithoutUsersInput;
 
-    @HideField()
+    @Field(() => UserCreatemessageReactionIdInput, {nullable:true})
     messageReactionId?: UserCreatemessageReactionIdInput;
 }

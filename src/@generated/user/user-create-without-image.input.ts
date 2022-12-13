@@ -51,15 +51,15 @@ export class UserCreateWithoutImageInput {
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
-    @HideField()
+    @Field(() => UserRelationCreateNestedManyWithoutUserInput, {nullable:true})
     UserRelations?: UserRelationCreateNestedManyWithoutUserInput;
 
-    @HideField()
+    @Field(() => MessageCreateNestedManyWithoutAuthorInput, {nullable:true})
     Messages?: MessageCreateNestedManyWithoutAuthorInput;
 
-    @HideField()
+    @Field(() => MessageReactionCreateNestedManyWithoutUsersInput, {nullable:true})
     MessageReaction?: MessageReactionCreateNestedManyWithoutUsersInput;
 
-    @HideField()
+    @Field(() => UserCreatemessageReactionIdInput, {nullable:true})
     messageReactionId?: UserCreatemessageReactionIdInput;
 }

@@ -38,7 +38,7 @@ export class UserCountAggregateInput {
     @Field(() => Boolean, {nullable:true})
     updatedAt?: true;
 
-    @HideField()
+    @Field(() => Boolean, {nullable:true})
     messageReactionId?: true;
 
     @Field(() => Boolean, {nullable:true})

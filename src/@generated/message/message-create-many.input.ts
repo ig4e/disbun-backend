@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class MessageCreateManyInput {
@@ -29,6 +28,6 @@ export class MessageCreateManyInput {
     @Field(() => String, {nullable:false})
     channelId!: string;
 
-    @HideField()
+    @Field(() => String, {nullable:true})
     groupChannelId?: string;
 }

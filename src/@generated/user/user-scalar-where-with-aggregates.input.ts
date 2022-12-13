@@ -52,6 +52,6 @@ export class UserScalarWhereWithAggregatesInput {
     @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
     updatedAt?: DateTimeWithAggregatesFilter;
 
-    @HideField()
+    @Field(() => StringNullableListFilter, {nullable:true})
     messageReactionId?: StringNullableListFilter;
 }

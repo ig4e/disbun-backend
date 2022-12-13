@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class UserOnGroupCountAggregateInput {
@@ -8,10 +7,10 @@ export class UserOnGroupCountAggregateInput {
     @Field(() => Boolean, {nullable:true})
     owner?: true;
 
-    @HideField()
+    @Field(() => Boolean, {nullable:true})
     groupId?: true;
 
-    @HideField()
+    @Field(() => Boolean, {nullable:true})
     userId?: true;
 
     @Field(() => Boolean, {nullable:true})

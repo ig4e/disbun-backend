@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class GroupChannelCountAggregate {
@@ -9,7 +8,7 @@ export class GroupChannelCountAggregate {
     @Field(() => Int, {nullable:false})
     id!: number;
 
-    @HideField()
+    @Field(() => Int, {nullable:false})
     userGroupId!: number;
 
     @Field(() => Int, {nullable:false})

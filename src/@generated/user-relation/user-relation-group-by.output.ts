@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { RelationStatus } from '../prisma/relation-status.enum';
-import { HideField } from '@nestjs/graphql';
 import { UserRelationCountAggregate } from './user-relation-count-aggregate.output';
 import { UserRelationMinAggregate } from './user-relation-min-aggregate.output';
 import { UserRelationMaxAggregate } from './user-relation-max-aggregate.output';
@@ -12,10 +11,10 @@ export class UserRelationGroupBy {
     @Field(() => RelationStatus, {nullable:false})
     status!: keyof typeof RelationStatus;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     relatedUserId!: string;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     userId!: string;
 
     @Field(() => UserRelationCountAggregate, {nullable:true})

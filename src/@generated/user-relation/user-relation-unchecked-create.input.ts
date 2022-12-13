@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { RelationStatus } from '../prisma/relation-status.enum';
-import { HideField } from '@nestjs/graphql';
 import { DmChannelUncheckedCreateNestedOneWithoutUserRelationInput } from '../dm-channel/dm-channel-unchecked-create-nested-one-without-user-relation.input';
 
 @InputType()
@@ -10,10 +9,10 @@ export class UserRelationUncheckedCreateInput {
     @Field(() => RelationStatus, {nullable:true})
     status?: keyof typeof RelationStatus;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     relatedUserId!: string;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     userId!: string;
 
     @Field(() => DmChannelUncheckedCreateNestedOneWithoutUserRelationInput, {nullable:true})

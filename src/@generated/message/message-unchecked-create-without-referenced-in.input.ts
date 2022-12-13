@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { AttachmentUncheckedCreateNestedManyWithoutMessageInput } from '../attachment/attachment-unchecked-create-nested-many-without-message.input';
 import { MessageReactionUncheckedCreateNestedManyWithoutMessageInput } from '../message-reaction/message-reaction-unchecked-create-nested-many-without-message.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class MessageUncheckedCreateWithoutReferencedInInput {
@@ -37,6 +36,6 @@ export class MessageUncheckedCreateWithoutReferencedInInput {
     @Field(() => String, {nullable:false})
     channelId!: string;
 
-    @HideField()
+    @Field(() => String, {nullable:true})
     groupChannelId?: string;
 }

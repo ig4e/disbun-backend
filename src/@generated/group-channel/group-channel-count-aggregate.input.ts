@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class GroupChannelCountAggregateInput {
@@ -8,7 +7,7 @@ export class GroupChannelCountAggregateInput {
     @Field(() => Boolean, {nullable:true})
     id?: true;
 
-    @HideField()
+    @Field(() => Boolean, {nullable:true})
     userGroupId?: true;
 
     @Field(() => Boolean, {nullable:true})

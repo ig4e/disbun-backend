@@ -6,7 +6,6 @@ import { Attachment } from '../attachment/attachment.model';
 import { MessageReaction } from '../message-reaction/message-reaction.model';
 import { DmChannel } from '../dm-channel/dm-channel.model';
 import { GroupChannel } from '../group-channel/group-channel.model';
-import { HideField } from '@nestjs/graphql';
 import { MessageCount } from './message-count.output';
 
 @ObjectType()
@@ -57,7 +56,7 @@ export class Message {
     @Field(() => GroupChannel, {nullable:true})
     groupChannel?: GroupChannel | null;
 
-    @HideField()
+    @Field(() => String, {nullable:true})
     groupChannelId!: string | null;
 
     @Field(() => MessageCount, {nullable:false})

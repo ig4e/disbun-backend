@@ -31,14 +31,10 @@ model User {
   dateOfBirth       DateTime
   createdAt         DateTime          @default(now())
   updatedAt         DateTime          @updatedAt
-  /// @HideField({ output: true, input: true })
   UserRelations     UserRelation[]
-  /// @HideField({ output: true, input: true })
   Messages          Message[]
-  /// @HideField({ output: true, input: true })
-  MessageReaction   MessageReaction[]
-  /// @HideField({ output: true, input: true })
-  messageReactionId String[]
+  MessageReactions   MessageReaction[]
+  messageReactionIDs String[]
 }
 
 model UserOnGroup {
@@ -46,11 +42,8 @@ model UserOnGroup {
   user  User      @relation(fields: [userId], references: [id])
   group UserGroup @relation(fields: [groupId], references: [id])
 
-  /// @HideField({ output: true, input: true })
   groupId String
-  /// @HideField({ output: true, input: true })
   userId  String
-
   @@id([groupId, userId])
 }
 
@@ -66,9 +59,7 @@ model UserRelation {
   relatedUser   User           @relation(fields: [relatedUserId], references: [id], "relatedUsers")
   user          User           @relation(fields: [userId], references: [id])
   status        RelationStatus @default(NONE)
-  /// @HideField({ output: true, input: true })
   relatedUserId String
-  /// @HideField({ output: true, input: true })
   userId        String
   channel       DmChannel?
 
@@ -87,9 +78,7 @@ model DmChannel {
   messages Message[]
 
   userRelation              UserRelation @relation(fields: [userRelationRelatedUserId, userRelationUserId], references: [relatedUserId, userId])
-  /// @HideField({ output: true, input: true })
   userRelationRelatedUserId String
-  /// @HideField({ output: true, input: true })
   userRelationUserId        String
 
   @@unique([userRelationRelatedUserId, userRelationUserId])
@@ -100,7 +89,6 @@ model GroupChannel {
   messages Message[]
 
   group       UserGroup @relation(fields: [userGroupId], references: [id])
-  /// @HideField({ output: true, input: true })
   userGroupId String    @unique
 }
 
@@ -120,7 +108,6 @@ model Message {
   channel        DmChannel         @relation(fields: [channelId], references: [id])
   channelId      String
   groupChannel   GroupChannel?     @relation(fields: [groupChannelId], references: [id])
-  /// @HideField({ output: true, input: true })
   groupChannelId String?
 }
 

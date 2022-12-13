@@ -57,12 +57,12 @@ export class UserUncheckedUpdateWithoutMessageReactionInput {
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => UserRelationUncheckedUpdateManyWithoutUserNestedInput, {nullable:true})
     UserRelations?: UserRelationUncheckedUpdateManyWithoutUserNestedInput;
 
-    @HideField()
+    @Field(() => MessageUncheckedUpdateManyWithoutAuthorNestedInput, {nullable:true})
     Messages?: MessageUncheckedUpdateManyWithoutAuthorNestedInput;
 
-    @HideField()
+    @Field(() => UserUpdatemessageReactionIdInput, {nullable:true})
     messageReactionId?: UserUpdatemessageReactionIdInput;
 }

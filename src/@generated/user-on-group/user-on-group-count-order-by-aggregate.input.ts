@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class UserOnGroupCountOrderByAggregateInput {
@@ -9,9 +8,9 @@ export class UserOnGroupCountOrderByAggregateInput {
     @Field(() => SortOrder, {nullable:true})
     owner?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     groupId?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     userId?: keyof typeof SortOrder;
 }

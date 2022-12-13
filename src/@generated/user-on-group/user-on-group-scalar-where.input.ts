@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { BoolFilter } from '../prisma/bool-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class UserOnGroupScalarWhereInput {
@@ -19,9 +18,9 @@ export class UserOnGroupScalarWhereInput {
     @Field(() => BoolFilter, {nullable:true})
     owner?: BoolFilter;
 
-    @HideField()
+    @Field(() => StringFilter, {nullable:true})
     groupId?: StringFilter;
 
-    @HideField()
+    @Field(() => StringFilter, {nullable:true})
     userId?: StringFilter;
 }

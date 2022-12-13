@@ -4,7 +4,6 @@ import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-fil
 import { BoolWithAggregatesFilter } from '../prisma/bool-with-aggregates-filter.input';
 import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input';
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class MessageScalarWhereWithAggregatesInput {
@@ -42,6 +41,6 @@ export class MessageScalarWhereWithAggregatesInput {
     @Field(() => StringWithAggregatesFilter, {nullable:true})
     channelId?: StringWithAggregatesFilter;
 
-    @HideField()
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
     groupChannelId?: StringNullableWithAggregatesFilter;
 }

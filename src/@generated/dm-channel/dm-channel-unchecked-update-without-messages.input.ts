@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class DmChannelUncheckedUpdateWithoutMessagesInput {
@@ -9,9 +8,9 @@ export class DmChannelUncheckedUpdateWithoutMessagesInput {
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     id?: StringFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     userRelationRelatedUserId?: StringFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     userRelationUserId?: StringFieldUpdateOperationsInput;
 }

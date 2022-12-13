@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
-import { HideField } from '@nestjs/graphql';
 import { DmChannelCountOrderByAggregateInput } from './dm-channel-count-order-by-aggregate.input';
 import { DmChannelMaxOrderByAggregateInput } from './dm-channel-max-order-by-aggregate.input';
 import { DmChannelMinOrderByAggregateInput } from './dm-channel-min-order-by-aggregate.input';
@@ -12,10 +11,10 @@ export class DmChannelOrderByWithAggregationInput {
     @Field(() => SortOrder, {nullable:true})
     id?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     userRelationRelatedUserId?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     userRelationUserId?: keyof typeof SortOrder;
 
     @Field(() => DmChannelCountOrderByAggregateInput, {nullable:true})

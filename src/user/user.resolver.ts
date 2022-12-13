@@ -5,16 +5,16 @@ import { UserUpdateInput } from 'src/@generated/user/user-update.input';
 import { UserWhereUniqueInput } from 'src/@generated/user/user-where-unique.input';
 import { UserWhereInput } from 'src/@generated/user/user-where.input';
 import { User } from 'src/@generated/user/user.model';
-import { CurrentUser, GqlAuthGuard } from 'src/auth/jwt-auth.guard';
+import { CurrentUser, GqlJwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { UserService } from './user.service';
 
 @Resolver(() => User)
 export class UserResolver {
   constructor(private readonly userService: UserService) {}
 
+  @UseGuards(GqlJwtAuthGuard)
   @Query(() => User, { name: 'me' })
-  @UseGuards(GqlAuthGuard)
-  me(@CurrentUser() user: User) {
+  me(@CurrentUser() user: { id: string }) {
     return this.userService.findOne({ id: { equals: user.id } });
   }
 

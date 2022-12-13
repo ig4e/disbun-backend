@@ -6,7 +6,6 @@ import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-str
 import { MessageReactionUncheckedUpdateManyWithoutMessageNestedInput } from '../message-reaction/message-reaction-unchecked-update-many-without-message-nested.input';
 import { MessageUncheckedUpdateManyWithoutReferencesNestedInput } from './message-unchecked-update-many-without-references-nested.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class MessageUncheckedUpdateWithoutAttachmentsInput {
@@ -41,6 +40,6 @@ export class MessageUncheckedUpdateWithoutAttachmentsInput {
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     channelId?: StringFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     groupChannelId?: NullableStringFieldUpdateOperationsInput;
 }

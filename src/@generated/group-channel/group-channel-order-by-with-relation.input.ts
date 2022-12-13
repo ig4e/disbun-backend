@@ -3,7 +3,6 @@ import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
 import { MessageOrderByRelationAggregateInput } from '../message/message-order-by-relation-aggregate.input';
 import { UserGroupOrderByWithRelationInput } from '../user-group/user-group-order-by-with-relation.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class GroupChannelOrderByWithRelationInput {
@@ -17,6 +16,6 @@ export class GroupChannelOrderByWithRelationInput {
     @Field(() => UserGroupOrderByWithRelationInput, {nullable:true})
     group?: UserGroupOrderByWithRelationInput;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     userGroupId?: keyof typeof SortOrder;
 }

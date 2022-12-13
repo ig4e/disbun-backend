@@ -3,7 +3,6 @@ import { InputType } from '@nestjs/graphql';
 import { StringFilter } from '../prisma/string-filter.input';
 import { MessageListRelationFilter } from '../message/message-list-relation-filter.input';
 import { UserRelationRelationFilter } from '../user-relation/user-relation-relation-filter.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class DmChannelWhereInput {
@@ -26,9 +25,9 @@ export class DmChannelWhereInput {
     @Field(() => UserRelationRelationFilter, {nullable:true})
     userRelation?: UserRelationRelationFilter;
 
-    @HideField()
+    @Field(() => StringFilter, {nullable:true})
     userRelationRelatedUserId?: StringFilter;
 
-    @HideField()
+    @Field(() => StringFilter, {nullable:true})
     userRelationUserId?: StringFilter;
 }

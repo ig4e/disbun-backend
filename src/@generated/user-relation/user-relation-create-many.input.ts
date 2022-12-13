@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { RelationStatus } from '../prisma/relation-status.enum';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class UserRelationCreateManyInput {
@@ -9,9 +8,9 @@ export class UserRelationCreateManyInput {
     @Field(() => RelationStatus, {nullable:true})
     status?: keyof typeof RelationStatus;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     relatedUserId!: string;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     userId!: string;
 }

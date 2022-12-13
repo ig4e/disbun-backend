@@ -53,15 +53,15 @@ export class UserOrderByWithRelationInput {
     @Field(() => SortOrder, {nullable:true})
     updatedAt?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => UserRelationOrderByRelationAggregateInput, {nullable:true})
     UserRelations?: UserRelationOrderByRelationAggregateInput;
 
-    @HideField()
+    @Field(() => MessageOrderByRelationAggregateInput, {nullable:true})
     Messages?: MessageOrderByRelationAggregateInput;
 
-    @HideField()
+    @Field(() => MessageReactionOrderByRelationAggregateInput, {nullable:true})
     MessageReaction?: MessageReactionOrderByRelationAggregateInput;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     messageReactionId?: keyof typeof SortOrder;
 }

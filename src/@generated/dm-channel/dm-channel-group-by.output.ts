@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 import { DmChannelCountAggregate } from './dm-channel-count-aggregate.output';
 import { DmChannelMinAggregate } from './dm-channel-min-aggregate.output';
 import { DmChannelMaxAggregate } from './dm-channel-max-aggregate.output';
@@ -11,10 +10,10 @@ export class DmChannelGroupBy {
     @Field(() => String, {nullable:false})
     id!: string;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     userRelationRelatedUserId!: string;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     userRelationUserId!: string;
 
     @Field(() => DmChannelCountAggregate, {nullable:true})
