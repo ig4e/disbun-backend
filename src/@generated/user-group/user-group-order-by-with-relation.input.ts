@@ -21,5 +21,5 @@ export class UserGroupOrderByWithRelationInput {
     users?: UserOnGroupOrderByRelationAggregateInput;
 
     @Field(() => GroupChannelOrderByWithRelationInput, {nullable:true})
-    groupChannel?: GroupChannelOrderByWithRelationInput;
+    channel?: GroupChannelOrderByWithRelationInput;
 }

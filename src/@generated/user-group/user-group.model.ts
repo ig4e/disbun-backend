@@ -22,7 +22,7 @@ export class UserGroup {
     users?: Array<UserOnGroup>;
 
     @Field(() => GroupChannel, {nullable:true})
-    groupChannel?: GroupChannel | null;
+    channel?: GroupChannel | null;
 
     @Field(() => UserGroupCount, {nullable:false})
     _count?: UserGroupCount;

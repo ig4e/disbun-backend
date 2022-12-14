@@ -20,5 +20,5 @@ export class UserGroupUncheckedCreateInput {
     users?: UserOnGroupUncheckedCreateNestedManyWithoutGroupInput;
 
     @Field(() => GroupChannelUncheckedCreateNestedOneWithoutGroupInput, {nullable:true})
-    groupChannel?: GroupChannelUncheckedCreateNestedOneWithoutGroupInput;
+    channel?: GroupChannelUncheckedCreateNestedOneWithoutGroupInput;
 }

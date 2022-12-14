@@ -4,8 +4,8 @@ import { UserImageUncheckedCreateNestedOneWithoutUserInput } from '../user-image
 import { HideField } from '@nestjs/graphql';
 import { UserLocale } from '../prisma/user-locale.enum';
 import { UserOnGroupUncheckedCreateNestedManyWithoutUserInput } from '../user-on-group/user-on-group-unchecked-create-nested-many-without-user.input';
-import { UserRelationUncheckedCreateNestedManyWithoutRelatedUserInput } from '../user-relation/user-relation-unchecked-create-nested-many-without-related-user.input';
 import { UserRelationUncheckedCreateNestedManyWithoutUserInput } from '../user-relation/user-relation-unchecked-create-nested-many-without-user.input';
+import { UserRelationUncheckedCreateNestedManyWithoutRelatedUserInput } from '../user-relation/user-relation-unchecked-create-nested-many-without-related-user.input';
 import { MessageReactionUncheckedCreateNestedManyWithoutUsersInput } from '../message-reaction/message-reaction-unchecked-create-nested-many-without-users.input';
 import { UserCreatemessageReactionIDsInput } from './user-createmessage-reaction-i-ds.input';
 
@@ -42,6 +42,9 @@ export class UserUncheckedCreateWithoutMessagesInput {
     @Field(() => UserOnGroupUncheckedCreateNestedManyWithoutUserInput, {nullable:true})
     groups?: UserOnGroupUncheckedCreateNestedManyWithoutUserInput;
 
+    @Field(() => UserRelationUncheckedCreateNestedManyWithoutUserInput, {nullable:true})
+    userSideRelations?: UserRelationUncheckedCreateNestedManyWithoutUserInput;
+
     @Field(() => UserRelationUncheckedCreateNestedManyWithoutRelatedUserInput, {nullable:true})
     relations?: UserRelationUncheckedCreateNestedManyWithoutRelatedUserInput;
 
@@ -53,9 +56,6 @@ export class UserUncheckedCreateWithoutMessagesInput {
 
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
-
-    @Field(() => UserRelationUncheckedCreateNestedManyWithoutUserInput, {nullable:true})
-    UserRelations?: UserRelationUncheckedCreateNestedManyWithoutUserInput;
 
     @Field(() => MessageReactionUncheckedCreateNestedManyWithoutUsersInput, {nullable:true})
     MessageReactions?: MessageReactionUncheckedCreateNestedManyWithoutUsersInput;

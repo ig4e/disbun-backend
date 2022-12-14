@@ -42,6 +42,9 @@ export class UserUncheckedCreateWithoutRelationsInput {
     @Field(() => UserOnGroupUncheckedCreateNestedManyWithoutUserInput, {nullable:true})
     groups?: UserOnGroupUncheckedCreateNestedManyWithoutUserInput;
 
+    @Field(() => UserRelationUncheckedCreateNestedManyWithoutUserInput, {nullable:true})
+    userSideRelations?: UserRelationUncheckedCreateNestedManyWithoutUserInput;
+
     @Field(() => Date, {nullable:false})
     dateOfBirth!: Date | string;
 
@@ -50,9 +53,6 @@ export class UserUncheckedCreateWithoutRelationsInput {
 
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
-
-    @Field(() => UserRelationUncheckedCreateNestedManyWithoutUserInput, {nullable:true})
-    UserRelations?: UserRelationUncheckedCreateNestedManyWithoutUserInput;
 
     @Field(() => MessageUncheckedCreateNestedManyWithoutAuthorInput, {nullable:true})
     Messages?: MessageUncheckedCreateNestedManyWithoutAuthorInput;

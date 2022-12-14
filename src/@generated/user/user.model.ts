@@ -44,6 +44,9 @@ export class User {
     groups?: Array<UserOnGroup>;
 
     @Field(() => [UserRelation], {nullable:true})
+    userSideRelations?: Array<UserRelation>;
+
+    @Field(() => [UserRelation], {nullable:true})
     relations?: Array<UserRelation>;
 
     @Field(() => Date, {nullable:false})
@@ -54,9 +57,6 @@ export class User {
 
     @Field(() => Date, {nullable:false})
     updatedAt!: Date;
-
-    @Field(() => [UserRelation], {nullable:true})
-    UserRelations?: Array<UserRelation>;
 
     @Field(() => [Message], {nullable:true})
     Messages?: Array<Message>;

@@ -17,5 +17,5 @@ export class UserGroupUncheckedUpdateWithoutImageInput {
     users?: UserOnGroupUncheckedUpdateManyWithoutGroupNestedInput;
 
     @Field(() => GroupChannelUncheckedUpdateOneWithoutGroupNestedInput, {nullable:true})
-    groupChannel?: GroupChannelUncheckedUpdateOneWithoutGroupNestedInput;
+    channel?: GroupChannelUncheckedUpdateOneWithoutGroupNestedInput;
 }

@@ -27,11 +27,11 @@ model User {
   staff              Boolean
   locale             UserLocale        @default(EN_US)
   groups             UserOnGroup[]
+  userSideRelations  UserRelation[]
   relations          UserRelation[]    @relation("relatedUsers")
   dateOfBirth        DateTime
   createdAt          DateTime          @default(now())
   updatedAt          DateTime          @updatedAt
-  UserRelations      UserRelation[]
   Messages           Message[]
   MessageReactions   MessageReaction[]
   messageReactionIDs String[]
@@ -49,11 +49,11 @@ model UserOnGroup {
 }
 
 model UserGroup {
-  id           String        @id @default(cuid()) @map("_id")
-  title        String
-  image        GroupImage?
-  users        UserOnGroup[]
-  groupChannel GroupChannel?
+  id      String        @id @default(cuid()) @map("_id")
+  title   String
+  image   GroupImage?
+  users   UserOnGroup[]
+  channel GroupChannel?
 }
 
 model UserRelation {

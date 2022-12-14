@@ -1,14 +1,14 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { UserCreateNestedOneWithoutUserRelationsInput } from '../user/user-create-nested-one-without-user-relations.input';
+import { UserCreateNestedOneWithoutUserSideRelationsInput } from '../user/user-create-nested-one-without-user-side-relations.input';
 import { RelationStatus } from '../prisma/relation-status.enum';
 import { DmChannelCreateNestedOneWithoutUserRelationInput } from '../dm-channel/dm-channel-create-nested-one-without-user-relation.input';
 
 @InputType()
 export class UserRelationCreateWithoutRelatedUserInput {
 
-    @Field(() => UserCreateNestedOneWithoutUserRelationsInput, {nullable:false})
-    user!: UserCreateNestedOneWithoutUserRelationsInput;
+    @Field(() => UserCreateNestedOneWithoutUserSideRelationsInput, {nullable:false})
+    user!: UserCreateNestedOneWithoutUserSideRelationsInput;
 
     @Field(() => RelationStatus, {nullable:true})
     status?: keyof typeof RelationStatus;

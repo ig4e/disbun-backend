@@ -55,6 +55,9 @@ export class UserWhereInput {
     groups?: UserOnGroupListRelationFilter;
 
     @Field(() => UserRelationListRelationFilter, {nullable:true})
+    userSideRelations?: UserRelationListRelationFilter;
+
+    @Field(() => UserRelationListRelationFilter, {nullable:true})
     relations?: UserRelationListRelationFilter;
 
     @Field(() => DateTimeFilter, {nullable:true})
@@ -65,9 +68,6 @@ export class UserWhereInput {
 
     @Field(() => DateTimeFilter, {nullable:true})
     updatedAt?: DateTimeFilter;
-
-    @Field(() => UserRelationListRelationFilter, {nullable:true})
-    UserRelations?: UserRelationListRelationFilter;
 
     @Field(() => MessageListRelationFilter, {nullable:true})
     Messages?: MessageListRelationFilter;

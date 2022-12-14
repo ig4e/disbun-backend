@@ -20,5 +20,5 @@ export class UserGroupCreateInput {
     users?: UserOnGroupCreateNestedManyWithoutGroupInput;
 
     @Field(() => GroupChannelCreateNestedOneWithoutGroupInput, {nullable:true})
-    groupChannel?: GroupChannelCreateNestedOneWithoutGroupInput;
+    channel?: GroupChannelCreateNestedOneWithoutGroupInput;
 }

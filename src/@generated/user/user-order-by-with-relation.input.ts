@@ -42,6 +42,9 @@ export class UserOrderByWithRelationInput {
     groups?: UserOnGroupOrderByRelationAggregateInput;
 
     @Field(() => UserRelationOrderByRelationAggregateInput, {nullable:true})
+    userSideRelations?: UserRelationOrderByRelationAggregateInput;
+
+    @Field(() => UserRelationOrderByRelationAggregateInput, {nullable:true})
     relations?: UserRelationOrderByRelationAggregateInput;
 
     @Field(() => SortOrder, {nullable:true})
@@ -52,9 +55,6 @@ export class UserOrderByWithRelationInput {
 
     @Field(() => SortOrder, {nullable:true})
     updatedAt?: keyof typeof SortOrder;
-
-    @Field(() => UserRelationOrderByRelationAggregateInput, {nullable:true})
-    UserRelations?: UserRelationOrderByRelationAggregateInput;
 
     @Field(() => MessageOrderByRelationAggregateInput, {nullable:true})
     Messages?: MessageOrderByRelationAggregateInput;

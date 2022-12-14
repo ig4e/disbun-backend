@@ -4,8 +4,8 @@ import { UserImageCreateNestedOneWithoutUserInput } from '../user-image/user-ima
 import { HideField } from '@nestjs/graphql';
 import { UserLocale } from '../prisma/user-locale.enum';
 import { UserOnGroupCreateNestedManyWithoutUserInput } from '../user-on-group/user-on-group-create-nested-many-without-user.input';
-import { UserRelationCreateNestedManyWithoutRelatedUserInput } from '../user-relation/user-relation-create-nested-many-without-related-user.input';
 import { UserRelationCreateNestedManyWithoutUserInput } from '../user-relation/user-relation-create-nested-many-without-user.input';
+import { UserRelationCreateNestedManyWithoutRelatedUserInput } from '../user-relation/user-relation-create-nested-many-without-related-user.input';
 import { MessageReactionCreateNestedManyWithoutUsersInput } from '../message-reaction/message-reaction-create-nested-many-without-users.input';
 import { UserCreatemessageReactionIDsInput } from './user-createmessage-reaction-i-ds.input';
 
@@ -42,6 +42,9 @@ export class UserCreateWithoutMessagesInput {
     @Field(() => UserOnGroupCreateNestedManyWithoutUserInput, {nullable:true})
     groups?: UserOnGroupCreateNestedManyWithoutUserInput;
 
+    @Field(() => UserRelationCreateNestedManyWithoutUserInput, {nullable:true})
+    userSideRelations?: UserRelationCreateNestedManyWithoutUserInput;
+
     @Field(() => UserRelationCreateNestedManyWithoutRelatedUserInput, {nullable:true})
     relations?: UserRelationCreateNestedManyWithoutRelatedUserInput;
 
@@ -53,9 +56,6 @@ export class UserCreateWithoutMessagesInput {
 
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
-
-    @Field(() => UserRelationCreateNestedManyWithoutUserInput, {nullable:true})
-    UserRelations?: UserRelationCreateNestedManyWithoutUserInput;
 
     @Field(() => MessageReactionCreateNestedManyWithoutUsersInput, {nullable:true})
     MessageReactions?: MessageReactionCreateNestedManyWithoutUsersInput;

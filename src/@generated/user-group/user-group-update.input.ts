@@ -21,5 +21,5 @@ export class UserGroupUpdateInput {
     users?: UserOnGroupUpdateManyWithoutGroupNestedInput;
 
     @Field(() => GroupChannelUpdateOneWithoutGroupNestedInput, {nullable:true})
-    groupChannel?: GroupChannelUpdateOneWithoutGroupNestedInput;
+    channel?: GroupChannelUpdateOneWithoutGroupNestedInput;
 }

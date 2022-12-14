@@ -16,5 +16,5 @@ export class UserGroupCreateWithoutUsersInput {
     image?: GroupImageCreateNestedOneWithoutGroupInput;
 
     @Field(() => GroupChannelCreateNestedOneWithoutGroupInput, {nullable:true})
-    groupChannel?: GroupChannelCreateNestedOneWithoutGroupInput;
+    channel?: GroupChannelCreateNestedOneWithoutGroupInput;
 }

@@ -9,10 +9,10 @@ export class UserCount {
     groups?: number;
 
     @Field(() => Int, {nullable:false})
-    relations?: number;
+    userSideRelations?: number;
 
     @Field(() => Int, {nullable:false})
-    UserRelations?: number;
+    relations?: number;
 
     @Field(() => Int, {nullable:false})
     Messages?: number;

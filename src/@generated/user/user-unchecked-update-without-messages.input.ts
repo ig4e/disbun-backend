@@ -6,9 +6,9 @@ import { HideField } from '@nestjs/graphql';
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { EnumUserLocaleFieldUpdateOperationsInput } from '../prisma/enum-user-locale-field-update-operations.input';
 import { UserOnGroupUncheckedUpdateManyWithoutUserNestedInput } from '../user-on-group/user-on-group-unchecked-update-many-without-user-nested.input';
+import { UserRelationUncheckedUpdateManyWithoutUserNestedInput } from '../user-relation/user-relation-unchecked-update-many-without-user-nested.input';
 import { UserRelationUncheckedUpdateManyWithoutRelatedUserNestedInput } from '../user-relation/user-relation-unchecked-update-many-without-related-user-nested.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
-import { UserRelationUncheckedUpdateManyWithoutUserNestedInput } from '../user-relation/user-relation-unchecked-update-many-without-user-nested.input';
 import { MessageReactionUncheckedUpdateManyWithoutUsersNestedInput } from '../message-reaction/message-reaction-unchecked-update-many-without-users-nested.input';
 import { UserUpdatemessageReactionIDsInput } from './user-updatemessage-reaction-i-ds.input';
 
@@ -45,6 +45,9 @@ export class UserUncheckedUpdateWithoutMessagesInput {
     @Field(() => UserOnGroupUncheckedUpdateManyWithoutUserNestedInput, {nullable:true})
     groups?: UserOnGroupUncheckedUpdateManyWithoutUserNestedInput;
 
+    @Field(() => UserRelationUncheckedUpdateManyWithoutUserNestedInput, {nullable:true})
+    userSideRelations?: UserRelationUncheckedUpdateManyWithoutUserNestedInput;
+
     @Field(() => UserRelationUncheckedUpdateManyWithoutRelatedUserNestedInput, {nullable:true})
     relations?: UserRelationUncheckedUpdateManyWithoutRelatedUserNestedInput;
 
@@ -56,9 +59,6 @@ export class UserUncheckedUpdateWithoutMessagesInput {
 
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
-
-    @Field(() => UserRelationUncheckedUpdateManyWithoutUserNestedInput, {nullable:true})
-    UserRelations?: UserRelationUncheckedUpdateManyWithoutUserNestedInput;
 
     @Field(() => MessageReactionUncheckedUpdateManyWithoutUsersNestedInput, {nullable:true})
     MessageReactions?: MessageReactionUncheckedUpdateManyWithoutUsersNestedInput;

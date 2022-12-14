@@ -1,6 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { UserGroupCreateNestedOneWithoutGroupChannelInput } from '../user-group/user-group-create-nested-one-without-group-channel.input';
+import { UserGroupCreateNestedOneWithoutChannelInput } from '../user-group/user-group-create-nested-one-without-channel.input';
 
 @InputType()
 export class GroupChannelCreateWithoutMessagesInput {
@@ -8,6 +8,6 @@ export class GroupChannelCreateWithoutMessagesInput {
     @Field(() => String, {nullable:true})
     id?: string;
 
-    @Field(() => UserGroupCreateNestedOneWithoutGroupChannelInput, {nullable:false})
-    group!: UserGroupCreateNestedOneWithoutGroupChannelInput;
+    @Field(() => UserGroupCreateNestedOneWithoutChannelInput, {nullable:false})
+    group!: UserGroupCreateNestedOneWithoutChannelInput;
 }

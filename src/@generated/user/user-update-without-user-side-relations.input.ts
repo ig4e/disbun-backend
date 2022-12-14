@@ -6,14 +6,14 @@ import { HideField } from '@nestjs/graphql';
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { EnumUserLocaleFieldUpdateOperationsInput } from '../prisma/enum-user-locale-field-update-operations.input';
 import { UserOnGroupUpdateManyWithoutUserNestedInput } from '../user-on-group/user-on-group-update-many-without-user-nested.input';
-import { UserRelationUpdateManyWithoutUserNestedInput } from '../user-relation/user-relation-update-many-without-user-nested.input';
 import { UserRelationUpdateManyWithoutRelatedUserNestedInput } from '../user-relation/user-relation-update-many-without-related-user-nested.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
+import { MessageUpdateManyWithoutAuthorNestedInput } from '../message/message-update-many-without-author-nested.input';
 import { MessageReactionUpdateManyWithoutUsersNestedInput } from '../message-reaction/message-reaction-update-many-without-users-nested.input';
 import { UserUpdatemessageReactionIDsInput } from './user-updatemessage-reaction-i-ds.input';
 
 @InputType()
-export class UserUpdateWithoutMessagesInput {
+export class UserUpdateWithoutUserSideRelationsInput {
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     id?: StringFieldUpdateOperationsInput;
@@ -45,9 +45,6 @@ export class UserUpdateWithoutMessagesInput {
     @Field(() => UserOnGroupUpdateManyWithoutUserNestedInput, {nullable:true})
     groups?: UserOnGroupUpdateManyWithoutUserNestedInput;
 
-    @Field(() => UserRelationUpdateManyWithoutUserNestedInput, {nullable:true})
-    userSideRelations?: UserRelationUpdateManyWithoutUserNestedInput;
-
     @Field(() => UserRelationUpdateManyWithoutRelatedUserNestedInput, {nullable:true})
     relations?: UserRelationUpdateManyWithoutRelatedUserNestedInput;
 
@@ -59,6 +56,9 @@ export class UserUpdateWithoutMessagesInput {
 
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
+
+    @Field(() => MessageUpdateManyWithoutAuthorNestedInput, {nullable:true})
+    Messages?: MessageUpdateManyWithoutAuthorNestedInput;
 
     @Field(() => MessageReactionUpdateManyWithoutUsersNestedInput, {nullable:true})
     MessageReactions?: MessageReactionUpdateManyWithoutUsersNestedInput;

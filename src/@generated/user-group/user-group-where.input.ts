@@ -30,5 +30,5 @@ export class UserGroupWhereInput {
     users?: UserOnGroupListRelationFilter;
 
     @Field(() => GroupChannelRelationFilter, {nullable:true})
-    groupChannel?: GroupChannelRelationFilter;
+    channel?: GroupChannelRelationFilter;
 }
