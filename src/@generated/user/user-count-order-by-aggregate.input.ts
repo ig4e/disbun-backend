@@ -40,5 +40,5 @@ export class UserCountOrderByAggregateInput {
     updatedAt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    messageReactionId?: keyof typeof SortOrder;
+    messageReactionIDs?: keyof typeof SortOrder;
 }

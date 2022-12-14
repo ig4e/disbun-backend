@@ -7,7 +7,7 @@ import { UserOnGroupUncheckedCreateNestedManyWithoutUserInput } from '../user-on
 import { UserRelationUncheckedCreateNestedManyWithoutUserInput } from '../user-relation/user-relation-unchecked-create-nested-many-without-user.input';
 import { MessageUncheckedCreateNestedManyWithoutAuthorInput } from '../message/message-unchecked-create-nested-many-without-author.input';
 import { MessageReactionUncheckedCreateNestedManyWithoutUsersInput } from '../message-reaction/message-reaction-unchecked-create-nested-many-without-users.input';
-import { UserCreatemessageReactionIdInput } from './user-createmessage-reaction-id.input';
+import { UserCreatemessageReactionIDsInput } from './user-createmessage-reaction-i-ds.input';
 
 @InputType()
 export class UserUncheckedCreateWithoutRelationsInput {
@@ -58,8 +58,8 @@ export class UserUncheckedCreateWithoutRelationsInput {
     Messages?: MessageUncheckedCreateNestedManyWithoutAuthorInput;
 
     @Field(() => MessageReactionUncheckedCreateNestedManyWithoutUsersInput, {nullable:true})
-    MessageReaction?: MessageReactionUncheckedCreateNestedManyWithoutUsersInput;
+    MessageReactions?: MessageReactionUncheckedCreateNestedManyWithoutUsersInput;
 
-    @Field(() => UserCreatemessageReactionIdInput, {nullable:true})
-    messageReactionId?: UserCreatemessageReactionIdInput;
+    @Field(() => UserCreatemessageReactionIDsInput, {nullable:true})
+    messageReactionIDs?: UserCreatemessageReactionIDsInput;
 }

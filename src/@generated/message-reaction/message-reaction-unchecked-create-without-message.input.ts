@@ -1,6 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { UserUncheckedCreateNestedManyWithoutMessageReactionInput } from '../user/user-unchecked-create-nested-many-without-message-reaction.input';
+import { UserUncheckedCreateNestedManyWithoutMessageReactionsInput } from '../user/user-unchecked-create-nested-many-without-message-reactions.input';
 
 @InputType()
 export class MessageReactionUncheckedCreateWithoutMessageInput {
@@ -11,6 +11,6 @@ export class MessageReactionUncheckedCreateWithoutMessageInput {
     @Field(() => String, {nullable:false})
     emoji!: string;
 
-    @Field(() => UserUncheckedCreateNestedManyWithoutMessageReactionInput, {nullable:true})
-    users?: UserUncheckedCreateNestedManyWithoutMessageReactionInput;
+    @Field(() => UserUncheckedCreateNestedManyWithoutMessageReactionsInput, {nullable:true})
+    users?: UserUncheckedCreateNestedManyWithoutMessageReactionsInput;
 }

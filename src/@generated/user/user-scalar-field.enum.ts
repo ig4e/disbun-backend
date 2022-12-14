@@ -12,7 +12,7 @@ export enum UserScalarFieldEnum {
     dateOfBirth = "dateOfBirth",
     createdAt = "createdAt",
     updatedAt = "updatedAt",
-    messageReactionId = "messageReactionId"
+    messageReactionIDs = "messageReactionIDs"
 }
 
 

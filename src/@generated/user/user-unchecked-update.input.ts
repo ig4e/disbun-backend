@@ -11,7 +11,7 @@ import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-up
 import { UserRelationUncheckedUpdateManyWithoutUserNestedInput } from '../user-relation/user-relation-unchecked-update-many-without-user-nested.input';
 import { MessageUncheckedUpdateManyWithoutAuthorNestedInput } from '../message/message-unchecked-update-many-without-author-nested.input';
 import { MessageReactionUncheckedUpdateManyWithoutUsersNestedInput } from '../message-reaction/message-reaction-unchecked-update-many-without-users-nested.input';
-import { UserUpdatemessageReactionIdInput } from './user-updatemessage-reaction-id.input';
+import { UserUpdatemessageReactionIDsInput } from './user-updatemessage-reaction-i-ds.input';
 
 @InputType()
 export class UserUncheckedUpdateInput {
@@ -65,8 +65,8 @@ export class UserUncheckedUpdateInput {
     Messages?: MessageUncheckedUpdateManyWithoutAuthorNestedInput;
 
     @Field(() => MessageReactionUncheckedUpdateManyWithoutUsersNestedInput, {nullable:true})
-    MessageReaction?: MessageReactionUncheckedUpdateManyWithoutUsersNestedInput;
+    MessageReactions?: MessageReactionUncheckedUpdateManyWithoutUsersNestedInput;
 
-    @Field(() => UserUpdatemessageReactionIdInput, {nullable:true})
-    messageReactionId?: UserUpdatemessageReactionIdInput;
+    @Field(() => UserUpdatemessageReactionIDsInput, {nullable:true})
+    messageReactionIDs?: UserUpdatemessageReactionIDsInput;
 }

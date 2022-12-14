@@ -60,8 +60,8 @@ export class UserOrderByWithRelationInput {
     Messages?: MessageOrderByRelationAggregateInput;
 
     @Field(() => MessageReactionOrderByRelationAggregateInput, {nullable:true})
-    MessageReaction?: MessageReactionOrderByRelationAggregateInput;
+    MessageReactions?: MessageReactionOrderByRelationAggregateInput;
 
     @Field(() => SortOrder, {nullable:true})
-    messageReactionId?: keyof typeof SortOrder;
+    messageReactionIDs?: keyof typeof SortOrder;
 }

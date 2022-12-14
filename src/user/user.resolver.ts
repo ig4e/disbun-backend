@@ -18,6 +18,7 @@ export class UserResolver {
     return this.userService.findOne({ id: { equals: user.id } });
   }
 
+  @UseGuards(GqlJwtAuthGuard)
   @Query(() => User, { name: 'user' })
   findOne(
     @Args('userWhereInput', { nullable: true }) userWhereInput: UserWhereInput,
@@ -37,11 +38,14 @@ export class UserResolver {
     return this.userService.create(userCreateInput);
   }
 
+  @UseGuards(GqlJwtAuthGuard)
   @Mutation(() => User)
-  updateUser(
+  updateUserRelation(
     @Args('userWhereUniqueInput') userWhereUniqueInput: UserWhereUniqueInput,
     @Args('userUpdateInput') userUpdateInput: UserUpdateInput,
   ) {
     return this.userService.update(userWhereUniqueInput, userUpdateInput);
   }
+
+  
 }

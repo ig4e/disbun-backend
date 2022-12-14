@@ -39,7 +39,7 @@ export class UserCountAggregateInput {
     updatedAt?: true;
 
     @Field(() => Boolean, {nullable:true})
-    messageReactionId?: true;
+    messageReactionIDs?: true;
 
     @Field(() => Boolean, {nullable:true})
     _all?: true;

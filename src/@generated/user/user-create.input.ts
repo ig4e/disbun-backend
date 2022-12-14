@@ -8,7 +8,7 @@ import { UserRelationCreateNestedManyWithoutRelatedUserInput } from '../user-rel
 import { UserRelationCreateNestedManyWithoutUserInput } from '../user-relation/user-relation-create-nested-many-without-user.input';
 import { MessageCreateNestedManyWithoutAuthorInput } from '../message/message-create-nested-many-without-author.input';
 import { MessageReactionCreateNestedManyWithoutUsersInput } from '../message-reaction/message-reaction-create-nested-many-without-users.input';
-import { UserCreatemessageReactionIdInput } from './user-createmessage-reaction-id.input';
+import { UserCreatemessageReactionIDsInput } from './user-createmessage-reaction-i-ds.input';
 
 @InputType()
 export class UserCreateInput {
@@ -62,8 +62,8 @@ export class UserCreateInput {
     Messages?: MessageCreateNestedManyWithoutAuthorInput;
 
     @Field(() => MessageReactionCreateNestedManyWithoutUsersInput, {nullable:true})
-    MessageReaction?: MessageReactionCreateNestedManyWithoutUsersInput;
+    MessageReactions?: MessageReactionCreateNestedManyWithoutUsersInput;
 
-    @Field(() => UserCreatemessageReactionIdInput, {nullable:true})
-    messageReactionId?: UserCreatemessageReactionIdInput;
+    @Field(() => UserCreatemessageReactionIDsInput, {nullable:true})
+    messageReactionIDs?: UserCreatemessageReactionIDsInput;
 }

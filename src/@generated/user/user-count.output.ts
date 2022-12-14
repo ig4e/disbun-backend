@@ -18,5 +18,5 @@ export class UserCount {
     Messages?: number;
 
     @Field(() => Int, {nullable:false})
-    MessageReaction?: number;
+    MessageReactions?: number;
 }

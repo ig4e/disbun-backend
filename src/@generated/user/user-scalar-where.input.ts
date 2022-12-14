@@ -53,5 +53,5 @@ export class UserScalarWhereInput {
     updatedAt?: DateTimeFilter;
 
     @Field(() => StringNullableListFilter, {nullable:true})
-    messageReactionId?: StringNullableListFilter;
+    messageReactionIDs?: StringNullableListFilter;
 }

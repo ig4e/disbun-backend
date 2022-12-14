@@ -4,13 +4,15 @@ import {
   Controller,
   Post,
   UnauthorizedException,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { randomUUID } from 'crypto';
 import { PrismaService } from 'src/prisma.service';
 import { AuthService } from './auth.service';
 import { UserLoginDto } from './dto/login.input';
 import { userRegisterDto } from './dto/register.input';
-import bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 
 @Controller('auth')
 export class AuthController {
@@ -20,7 +22,7 @@ export class AuthController {
   ) {}
 
   @Post('login')
-  async login(@Body() userLoginDto: UserLoginDto) {
+  async login(@Body(ValidationPipe) userLoginDto: UserLoginDto) {
     const user = await this.authService.validateUser(
       userLoginDto.email,
       userLoginDto.password,
@@ -32,7 +34,7 @@ export class AuthController {
   }
 
   @Post('register')
-  async register(@Body() userRegisterDto: userRegisterDto) {
+  async register(@Body(ValidationPipe) userRegisterDto: userRegisterDto) {
     const emailAlreadyExsits = await this.prisma.user.count({
       where: { email: { equals: userRegisterDto.email } },
     });

@@ -4,13 +4,13 @@ import { UserImageCreateNestedOneWithoutUserInput } from '../user-image/user-ima
 import { HideField } from '@nestjs/graphql';
 import { UserLocale } from '../prisma/user-locale.enum';
 import { UserOnGroupCreateNestedManyWithoutUserInput } from '../user-on-group/user-on-group-create-nested-many-without-user.input';
+import { UserRelationCreateNestedManyWithoutRelatedUserInput } from '../user-relation/user-relation-create-nested-many-without-related-user.input';
 import { UserRelationCreateNestedManyWithoutUserInput } from '../user-relation/user-relation-create-nested-many-without-user.input';
 import { MessageCreateNestedManyWithoutAuthorInput } from '../message/message-create-nested-many-without-author.input';
-import { MessageReactionCreateNestedManyWithoutUsersInput } from '../message-reaction/message-reaction-create-nested-many-without-users.input';
 import { UserCreatemessageReactionIDsInput } from './user-createmessage-reaction-i-ds.input';
 
 @InputType()
-export class UserCreateWithoutRelationsInput {
+export class UserCreateWithoutMessageReactionsInput {
 
     @Field(() => String, {nullable:true})
     id?: string;
@@ -42,6 +42,9 @@ export class UserCreateWithoutRelationsInput {
     @Field(() => UserOnGroupCreateNestedManyWithoutUserInput, {nullable:true})
     groups?: UserOnGroupCreateNestedManyWithoutUserInput;
 
+    @Field(() => UserRelationCreateNestedManyWithoutRelatedUserInput, {nullable:true})
+    relations?: UserRelationCreateNestedManyWithoutRelatedUserInput;
+
     @Field(() => Date, {nullable:false})
     dateOfBirth!: Date | string;
 
@@ -56,9 +59,6 @@ export class UserCreateWithoutRelationsInput {
 
     @Field(() => MessageCreateNestedManyWithoutAuthorInput, {nullable:true})
     Messages?: MessageCreateNestedManyWithoutAuthorInput;
-
-    @Field(() => MessageReactionCreateNestedManyWithoutUsersInput, {nullable:true})
-    MessageReactions?: MessageReactionCreateNestedManyWithoutUsersInput;
 
     @Field(() => UserCreatemessageReactionIDsInput, {nullable:true})
     messageReactionIDs?: UserCreatemessageReactionIDsInput;

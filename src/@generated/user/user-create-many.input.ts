@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { HideField } from '@nestjs/graphql';
 import { UserLocale } from '../prisma/user-locale.enum';
-import { UserCreatemessageReactionIdInput } from './user-createmessage-reaction-id.input';
+import { UserCreatemessageReactionIDsInput } from './user-createmessage-reaction-i-ds.input';
 
 @InputType()
 export class UserCreateManyInput {
@@ -40,6 +40,6 @@ export class UserCreateManyInput {
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
-    @Field(() => UserCreatemessageReactionIdInput, {nullable:true})
-    messageReactionId?: UserCreatemessageReactionIdInput;
+    @Field(() => UserCreatemessageReactionIDsInput, {nullable:true})
+    messageReactionIDs?: UserCreatemessageReactionIDsInput;
 }

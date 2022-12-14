@@ -40,7 +40,7 @@ export class UserCountAggregate {
     updatedAt!: number;
 
     @Field(() => Int, {nullable:false})
-    messageReactionId!: number;
+    messageReactionIDs!: number;
 
     @Field(() => Int, {nullable:false})
     _all!: number;

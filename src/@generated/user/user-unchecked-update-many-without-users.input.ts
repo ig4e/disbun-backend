@@ -5,7 +5,7 @@ import { HideField } from '@nestjs/graphql';
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { EnumUserLocaleFieldUpdateOperationsInput } from '../prisma/enum-user-locale-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
-import { UserUpdatemessageReactionIdInput } from './user-updatemessage-reaction-id.input';
+import { UserUpdatemessageReactionIDsInput } from './user-updatemessage-reaction-i-ds.input';
 
 @InputType()
 export class UserUncheckedUpdateManyWithoutUsersInput {
@@ -43,6 +43,6 @@ export class UserUncheckedUpdateManyWithoutUsersInput {
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-    @Field(() => UserUpdatemessageReactionIdInput, {nullable:true})
-    messageReactionId?: UserUpdatemessageReactionIdInput;
+    @Field(() => UserUpdatemessageReactionIDsInput, {nullable:true})
+    messageReactionIDs?: UserUpdatemessageReactionIDsInput;
 }

@@ -62,10 +62,10 @@ export class User {
     Messages?: Array<Message>;
 
     @Field(() => [MessageReaction], {nullable:true})
-    MessageReaction?: Array<MessageReaction>;
+    MessageReactions?: Array<MessageReaction>;
 
     @Field(() => [String], {nullable:true})
-    messageReactionId!: Array<string>;
+    messageReactionIDs!: Array<string>;
 
     @Field(() => UserCount, {nullable:false})
     _count?: UserCount;

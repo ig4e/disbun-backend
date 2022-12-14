@@ -73,8 +73,8 @@ export class UserWhereInput {
     Messages?: MessageListRelationFilter;
 
     @Field(() => MessageReactionListRelationFilter, {nullable:true})
-    MessageReaction?: MessageReactionListRelationFilter;
+    MessageReactions?: MessageReactionListRelationFilter;
 
     @Field(() => StringNullableListFilter, {nullable:true})
-    messageReactionId?: StringNullableListFilter;
+    messageReactionIDs?: StringNullableListFilter;
 }
